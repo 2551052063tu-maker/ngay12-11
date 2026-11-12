@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist & Chic</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* phần đầu trang */
+        .header {
+            background-color: #75bfd9;
+            border: 4px solid #b8901c;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .logo {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #5aa6c4;
+        }
+
+        .header h1 {
+            text-align: center;
+            font-size: 48px;
+            font-weight: normal;
+            margin: 0;
+            padding-top: 10px;
+        }
+
+        .dangnhap {
+            position: absolute;
+            right: 30px;
+            top: 25px;
+            font-size: 20px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            margin-left: 170px;
+            margin-right: 30px;
+            margin-top: 15px;
+            font-size: 19px;
+        }
+
+        .timkiem {
+            margin-left: 170px;
+            margin-right: 30px;
+            margin-top: 15px;
+        }
+
+        .timkiem input {
+            width: 100%;
+            height: 46px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        /* hai nút Sản phẩm mới / Sản phẩm nổi */
+        .menu2 {
+            background-image: linear-gradient(#d6ebf3, #eef6fa);
+            height: 54px;
+            padding: 8px 12px 0 12px;
+        }
+
+        .menu2 a {
+            background-color: #75bfd9;
+            border-radius: 25px;
+            padding: 8px 14px;
+            font-size: 22px;
+            margin-right: 10px;
+        }
+
+        .vach-vang {
+            background-color: #fbd94a;
+            height: 16px;
+        }
+
+        .mo {
+            background-image: linear-gradient(#eef6fa, white);
+            height: 34px;
+        }
+
+        /* danh sách sản phẩm */
+        .sanpham {
+             display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px 2%;
+            padding: 0 12px 40px 12px;
+        }
+
+        .item {
+            width: 100%;
+        }
+
+
+        .hinh {
+            height: 200px;
+            background-color: #e9edf0;
+        }
+
+        .ten {
+            background-color: #c9d3dd;
+            height: 125px;
+            text-align: center;
+            padding-top: 28px;
+            font-size: 20px;
+        }
+
+        .ten h2 {
+            font-size: 20px;
+            font-weight: normal;
+            margin: 0;
+            height: 60px;
+        }
+        .hinh {
+            height: 280px;
+            background-color: white;
+            overflow: hidden;
+        }
+        .hinh a {
+            display: block;
+            height: 100%;
+        }
+
+        .hinh img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .logo {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background-color: #5aa6c4;
+        overflow: hidden;
+        }
+
+        .logo a {  
+        display: block;
+        height: 100%;
+        }
+
+        .logo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.42);
+        }
+
+        .menu2 a {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- header -->
+    <div class="header">
+        <div class="logo">
+            <a href="index.html">
+            <img src="../image/logo.jpg" alt="Minimalist & Chic">
+            </a>
+        </div>
+        <h1>Minimalist & Chic</h1>
+        <a class="dangnhap" href="login.html">Sign up / Sign in</a>
+
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="About Us.html">About Us</a>
+            <a href="contact-us-final.html">Contact</a>
+        </div>
+
+        <div class="timkiem">
+            <input type="text" id="searchInput" oninput="timKiem()" placeholder="Tìm kiếm tên sản phẩm...">
+        </div>
+    </div>
+
+    <div class="menu2">
+        <a href="#" onclick="sapXep('giam'); return false;">Giá: cao → thấp</a>
+        <a href="#" onclick="sapXep('tang'); return false;">Giá: thấp → cao</a>
+    </div>
+    <div class="vach-vang"></div>
+    <div class="mo"></div>
+
+    <!-- sản phẩm -->
+    <div class="sanpham" id="productList">
+        <div class="item">
+            <div class="hinh">
+                <a href ="#">
+                    <img src="../image/pant1.png">
+                </a>
+            </div>
+            <div class="ten">
+                <h2>Bounce Fleece Baggy Sweatpants</h2>
+                719.000 vnđ
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="hinh">
+                <a href="#">
+                    <img src="../image/jacket1.png">
+                </a>
+            </div>
+            <div class="ten">
+                <h2>Oversized Zip Canvas Hoodie</h2>
+                1.899.000 vnđ
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="hinh">
+                <a href="#">
+                    <img src="../image/polo1.png">
+                </a>
+            </div>
+            <div class="ten">
+                <h2>CloudMotion Polo</h2>
+                449.000 vnđ
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="hinh">
+                <a href="#">
+                    <img src="../image/shirt1.png">
+                </a>
+            </div>
+            <div class="ten">
+                <h2>CloudMotion T-Shirt</h2>
+                299.000 vnđ
+            </div>
+        </div>
+        <div class="item">
+            <div class="hinh">
+                <a href="#">
+                    <img src="../image/pant2.png">
+                </a>
+            </div>
+            <div class="ten">
+                <h2>Organic Chino Ethical & Sustainable Pant</h2>
+                999.000 vnđ
+            </div>
+        </div>
+                <div class="item">
+            <div class="hinh">
+                <a href="#">
+                    <img src="../image/jacket2.png">
+                </a>
+            </div>
+            <div class="ten">
+                <h2>Uniqlo Denim Trucker Jacket</h2>
+                667.000 vnđ
+            </div>
+        </div>
+                <div class="item">
+            <div class="hinh">
+                <a href="#">
+                    <img src="../image/polo2.png">
+                </a>
+            </div>
+            <div class="ten">
+                <h2>The A-Polo Mission</h2>
+                699.000 vnđ
+            </div>
+        </div>
+                <div class="item">
+            <div class="hinh">
+                <a href="#">
+                    <img src="../image/shirt2.png">
+                </a>
+            </div>
+            <div class="ten">
+                <h2>Generic Alpha Male Shirt</h2>
+                349.000 vnđ
+            </div>
+        </div>
+    </div>
+
+    <p id="noResult" style="display:none; text-align:center; font-size:20px; color:#555; padding:20px 0 50px;">
+        Không tìm thấy sản phẩm phù hợp.
+    </p>
+
+    <script>
+        // khung chứa tất cả sản phẩm
+        var khung = document.getElementById("productList");
+        // danh sách các sản phẩm (mỗi sản phẩm là 1 thẻ div class="item")
+        var danhSach = document.getElementsByClassName("item");
+
+        // đổi giá chữ "1.899.000 vnđ" thành số 1899000
+        function layGia(sanPham) {
+            var chu = sanPham.getElementsByClassName("ten")[0].innerText;
+            var tenSP = sanPham.getElementsByTagName("h2")[0].innerText;
+            chu = chu.replace(tenSP, "");   // bỏ phần tên đi
+            chu = chu.replace("vnđ", "");   // bỏ chữ vnđ
+            chu = chu.split(".").join("");  // bỏ dấu chấm
+            return Number(chu);
+        }
+
+        // tìm kiếm theo tên sản phẩm
+        function timKiem() {
+            var tuKhoa = document.getElementById("searchInput").value.toLowerCase();
+            var dem = 0;
+
+            for (var i = 0; i < danhSach.length; i++) {
+                var ten = danhSach[i].getElementsByTagName("h2")[0].innerText.toLowerCase();
+
+                if (ten.indexOf(tuKhoa) != -1) {
+                    danhSach[i].style.display = "";      // hiện
+                    dem = dem + 1;
+                } else {
+                    danhSach[i].style.display = "none";  // ẩn
+                }
+            }
+
+            // nếu không có sản phẩm nào thì hiện thông báo
+            if (dem == 0) {
+                document.getElementById("noResult").style.display = "block";
+            } else {
+                document.getElementById("noResult").style.display = "none";
+            }
+        }
+
+        // sắp xếp theo giá: kieu = "giam" (cao -> thấp) hoặc "tang" (thấp -> cao)
+        function sapXep(kieu) {
+            // chép các sản phẩm vào 1 mảng
+            var mang = [];
+            for (var i = 0; i < danhSach.length; i++) {
+                mang.push(danhSach[i]);
+            }
+
+            // so sánh từng cặp, sai thứ tự thì đổi chỗ
+            for (var i = 0; i < mang.length - 1; i++) {
+                for (var j = i + 1; j < mang.length; j++) {
+                    var giaI = layGia(mang[i]);
+                    var giaJ = layGia(mang[j]);
+
+                    if ((kieu == "giam" && giaI < giaJ) || (kieu == "tang" && giaI > giaJ)) {
+                        var tam = mang[i];
+                        mang[i] = mang[j];
+                        mang[j] = tam;
+                    }
+                }
+            }
+
+            // đặt lại các sản phẩm vào khung theo thứ tự mới
+            for (var i = 0; i < mang.length; i++) {
+                khung.appendChild(mang[i]);
+            }
+        }
+    </script>
+
+</body>
+</html>
